@@ -4,4 +4,4 @@ You can find the web app [here](http://www.whatspopping.xyz/).
 ## Introduction
 One of the great things about Spotify is their amazing ability to recommend new songs based on each user's own music personality.
 ## Credits
-* https://github.com/drshrey/spotify-flask-auth-example - Helped me understand how to use Flask and Spotify's Authorization process
+* https://github.com/drshrey/spotify-flask-auth-example - Helped me understand how to use Flask with Spotify's Authorization process
