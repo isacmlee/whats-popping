@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title>What's Popping?</title>
+		<title>what's popping?</title>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/png" href="favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -15,32 +15,35 @@
 			<header id="header">
 				<div class="content">
 					<h1><a href="#">What's Popping?</a></h1>
-					<p>A song recommender based on your Spotify "Liked Songs" library<br />
+					<p>A web app that recommends songs based on audio characteristics and your Spotify "Liked Songs" library.<br />
 					</p>
 					<ul class="actions">
-						<li><a href="http://whatspopping.xyz/login" class="button primary icon solid">Get Songs</a></li>
+						<li><a href="http://www.whatspopping.xyz/login" class="button primary icon solid">Get Songs</a></li>
 						<li><a href="#one" class="button icon solid fa-chevron-down scrolly">Learn More</a></li>
 					</ul>
 				</div>
 			</header>
 
 
-		<!-- One -->
 			<section id="one" class="wrapper style2 special">
-				<header class="major">
-					<h2>How it works</h2>
-					<p>This song recommender app uses the Spotify API to gain access to your "Liked Songs" library. After obtaining the songs, a recommender model classifies
-					'favorite' songs based on the features of all the songs in the "Liked Songs" library. For example, if your library consists of popular songs, the recommender will recommend songs with similar popularity. There are many other song features the model could choose from (valence, instrumentalness, etc.) You can find a more in-depth explanation and the code at my <a href="https://github.com/isacmlee/song-recommender-app" style="color:#1DB954">GitHub</a>
-</p>
-				</header>
-			</section>
+			<header class="major">
+				<h2>About</h2>
+				<p>
+					"What's Popping" uses your Spotify songs from your "Liked Songs" library and their features in order to recommend similar songs. This use of song features is one method out of many that Spotify is reported to use when recommending music. This is my attempt to recreate their recommender with my own spin and approach.
+				</p>
+				<h2> Why use song features? </h2>
+				<p>
+				Song features consist of instrumentalness, key, mode, popularity, acousticness, valence and many more. And each feature describes their respective song their own way. For example, valence measures the positiveness of a song from 0 to 1, with 1 being very positive and 0 being negative. Therefore, if a user mainly listens to low valence music, the recommender will analyze that there is a high correlation between songs listened to and low valence, and therefore predict songs with similar valence levels (if we disregard all other features).
+				</p>
+				<h2>Code and Documentation</h2>
+				<p>
+				You can find a more in-depth explanation and the code at my <a href="https://github.com/isacmlee/whats-popping" style="color:#1DB954">GitHub.</a>
+				</p>
+			</header>
+		</section>
 
 		<!-- Footer -->
 			<footer id="footer">
-				<ul class="icons">
-					<li><a href="https://www.linkedin.com/in/isacmlee/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-					<li><a href="https://github.com/isacmlee" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-				</ul>
 				<p class="copyright">&copy; Isac L. Credits: <a href="http://html5up.net">HTML5 UP</a></p>
 			</footer>
 
