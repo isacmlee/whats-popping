@@ -69,7 +69,7 @@ class Temp:
         features = c.loc['favorite', :]
         return features[features > .2].index, X
 
-    # Step 5: Model Fitting
+    # Step 5: Model Fitting / Return recommendations
     def fitting(self):
         # Train-Split
         X_train, X_test, y_train, y_test = train_test_split(self.balanced_classified_df[self.features_name].drop(columns='favorite'), self.balanced_classified_df.favorite, test_size=.20)
@@ -81,9 +81,6 @@ class Temp:
         print(self.classified_df[['track_name','artist_name','genre']])
         return self.classified_df[['track_name','artist_name','genre']]
 
-        ## Idea: if F1 score is less than certain value, then return "not enough data" error
-
-    # Step 6: Converting df to Spotify playlist
     
 
 

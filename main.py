@@ -26,8 +26,6 @@ auth_query_parameters = {
     "response_type": "code",
     "redirect_uri": REDIRECT_URI,
     "scope": SCOPE,
-    # "state": STATE,
-    # "show_dialog": SHOW_DIALOG_str,
     "client_id": CLIENT_ID
 }
 
@@ -56,22 +54,14 @@ def callback():
     }
     post_request = requests.post(SPOTIFY_TOKEN_URL, data=code_payload)
 
-    # Auth Step 5: Tokens are Returned to Application
+    # Auth: Tokens are Returned to Application
     response_data = json.loads(post_request.text)
     access_token = response_data["access_token"]
     refresh_token = response_data["refresh_token"]
     token_type = response_data["token_type"]
     expires_in = response_data["expires_in"]
 
-    # Auth Step 6: Use the access token to access Spotify API
-    authorization_header = {"Authorization": "Bearer {}".format(access_token)}
-
     # Object
     temp = Temp(access_token)
     df = temp.recommendations
-
     return render_template('redirect.html', tables=[df.to_html(classes='data')], titles=df.columns.values)
-
-
-if __name__ == "__main__":
-    app.run(debug=True, port=PORT)
