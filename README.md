@@ -6,4 +6,4 @@ One of the great things about Spotify is their amazing ability to recommend new 
 ## Acknowledgements
 * https://github.com/drshrey/spotify-flask-auth-example (Spotify User Authorization) 
 * https://blog.miguelgrinberg.com/post/using-celery-with-flask (Progress bar)
-* https://giphy.com/gifs/jackharlow-whats-poppin-jack-harlow-LOhbIhB1UacHfzuxdY (Background gif "Dance Walk Away" by Jack Harlow) 
+* https://giphy.com/gifs/jackharlow-whats-poppin-jack-harlow-LOhbIhB1UacHfzuxdY (Background GIF) 
