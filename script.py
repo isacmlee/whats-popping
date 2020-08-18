@@ -16,13 +16,6 @@ class Temp:
     def __init__(self, token):
         self.token = token
         self.features = pd.read_csv("data/SpotifyFeatures.csv")
-        self.json = self.get_saved_songs()
-        self.df = self.get_info()
-        self.classified_df = self.classify_songs()
-        self.recommendations, self.f1score = self.fitting()
-        self.tuples = self.song_names()
-        self.user_id = self.get_id()
-        self.finalized = self.add_to_playlist()
 
     # Step 1: Get "Saved Songs" data.
     def get_saved_songs(self):
@@ -183,11 +176,3 @@ class Temp:
         )
         response_json = response.json()
         return response_json
-
-
-
-
-
-
-
-
