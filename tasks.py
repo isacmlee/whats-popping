@@ -1,30 +1,36 @@
 from celery import Celery
-from script import Temp
+from model import Model
+from playlist_creation import Playlist
 import time
+
+# Instantiating Celery Object 
 app = Celery()
 app.config_from_object("celery_settings")
 
+@app.task(bind=True)
+def run_model(self, access_code):
+
+    rf_model = Model(access_code)
+
+    self.update_state(state='PROGRESS',meta={'status': "Retrieving 'Liked' Songs"})
+    rf_model.df = rf_model.get_saved_songs() # Retrieving Songs
+    time.sleep(5)
+
+    self.update_state(state='PROGRESS',meta={'status': "Labeling Favorite Songs"})
+    rf_model.classified_df = rf_model.classify_songs() # Labeling Favorite Songs
+    time.sleep(5)
+
+    self.update_state(state='PROGRESS',meta={'status': "Training Model..."})
+    rf_model.recommendations = rf_model.fitting() # Training Model
+    self.update_state(state='PROGRESS',meta={'status': "Predicting Songs"})
+    time.sleep(5)
+    self.update_state(state='SUCCESS',meta={'status': "Model Complete."})
+    return "Model Complete."
 
 @app.task(bind=True)
-def recommending(self, access_code):
-    obj = Temp(access_code)
-
-    self.update_state(state='PROGRESS',meta={'current': 25,'total': 100,'status': "Retrieving Songs"})
-    time.sleep(5)
-    obj.json = obj.get_saved_songs() # Retrieving Songs
-    obj.df = obj.get_info()
-    self.update_state(state='PROGRESS',meta={'current': 50,'total': 100,'status': "Labeling Favorite Songs"})
-    time.sleep(5)
-    obj.classified_df = obj.classify_songs() # Labeling Favorite Songs
-    self.update_state(state='PROGRESS',meta={'current': 75,'total': 100,'status': "Recommending Songs"})
-    obj.recommendations, obj.f1score = obj.fitting() # Recommending Songs
-    self.update_state(state='PROGRESS',meta={'current': 90,'total': 100,'status': "Adding to Spotify"})
-    obj.tuples = obj.song_names() # Adding Recommendations to Spotify
-    obj.user_id = obj.get_id()
-    obj.finalized = obj.add_to_playlist()
-    time.sleep(1)
-    return {'current': 100, 'total': 100}
-
-@app.task()
-def playlist_preview():
-    return "in progress..."
+def create_playlist(self, access_code):
+    pl_creation = Playlist(access_code)
+    pl_creation.tuples = pl_creation.song_names()
+    pl_creation.user_id = pl_creation.get_id()
+    pl_creation.add_to_playlist()
+    return "Created Playlist."
