@@ -10,5 +10,5 @@ Jinja2==2.11.3
 MarkupSafe==1.1.1
 Werkzeug==1.0.1
 requests==2.24.0
-celery==4.4.7
+celery==5.2.2
 redis==3.5.3
