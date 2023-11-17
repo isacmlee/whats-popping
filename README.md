@@ -1,4 +1,5 @@
-# What's Popping? (NO LONGER ACTIVE) 
+# What's Popping? 
+### Update (11/17/23): App is no longer active due to the removal of free Heroku Dynos on 11/28/22. 
 You can find the web app [here](http://www.whatspopping.xyz/). 
 ![banner](data/whatspopping.jpg)
 ## Introduction
