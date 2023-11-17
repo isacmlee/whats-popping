@@ -1,4 +1,4 @@
-# What's Popping?
+# What's Popping? (NO LONGER ACTIVE) 
 You can find the web app [here](http://www.whatspopping.xyz/). 
 ![banner](data/whatspopping.jpg)
 ## Introduction
